@@ -42,4 +42,9 @@ public final class Calculadora {
 		return resultado;
 	}
 	
+	private double adicionar(double a, double b)
+	{
+		return a + b;
+	}
+	
 }
