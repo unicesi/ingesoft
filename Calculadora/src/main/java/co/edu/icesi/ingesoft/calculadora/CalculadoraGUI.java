@@ -57,7 +57,7 @@ public final class CalculadoraGUI {
 	/**
 	 * 
 	 */
-	private ManejadorEventosOperaciones controladorEventosOperaciones;
+	private ManejadorEventosOperaciones manejadorEventosOperaciones;
 	/**
 	 * 
 	 */
@@ -87,7 +87,7 @@ public final class CalculadoraGUI {
 	protected CalculadoraGUI() {
 		this.pila = new Stack<String>();
 		this.manejadorEventosNumeros = new ManejadorEventosNumeros(this);
-		this.controladorEventosOperaciones = new ManejadorEventosOperaciones(this);
+		this.manejadorEventosOperaciones = new ManejadorEventosOperaciones(this);
 		this.manejadorEventosControles = new ManejadorEventosControles(this);
 		initialize();
 	}
@@ -189,27 +189,27 @@ public final class CalculadoraGUI {
 		panelControles.add(buttonPunto);
 		
 		JButton buttonSuma = new JButton(Operacion.SUMA.getTexto());
-		buttonSuma.addActionListener(this.controladorEventosOperaciones);
+		buttonSuma.addActionListener(this.manejadorEventosOperaciones);
 		buttonSuma.setBounds(150, 103, 48, 29);
 		panelControles.add(buttonSuma);
 		
 		JButton buttonResta = new JButton(Operacion.RESTA.getTexto());
-		buttonResta.addActionListener(this.controladorEventosOperaciones);
+		buttonResta.addActionListener(this.manejadorEventosOperaciones);
 		buttonResta.setBounds(150, 70, 48, 29);
 		panelControles.add(buttonResta);
 		
 		JButton buttonMultiplicacion = new JButton(Operacion.MULTIPLICACION.getTexto());
-		buttonMultiplicacion.addActionListener(this.controladorEventosOperaciones);
+		buttonMultiplicacion.addActionListener(this.manejadorEventosOperaciones);
 		buttonMultiplicacion.setBounds(150, 38, 48, 29);
 		panelControles.add(buttonMultiplicacion);
 
 		JButton buttonDivision = new JButton(Operacion.DIVISION.getTexto());
-		buttonDivision.addActionListener(this.controladorEventosOperaciones);
+		buttonDivision.addActionListener(this.manejadorEventosOperaciones);
 		buttonDivision.setBounds(150, 6, 48, 29);
 		panelControles.add(buttonDivision);
 
 		JButton buttonResultado = new JButton(Control.RESULTADO.getTexto());
-		buttonResultado.addActionListener(this.controladorEventosOperaciones);
+		buttonResultado.addActionListener(this.manejadorEventosControles);
 		buttonResultado.setBounds(102, 103, 48, 29);
 		panelControles.add(buttonResultado);
 	}
