@@ -57,5 +57,12 @@ public final class Calculadora {
 		return a * b;
 	}
 	
+	private double dividir(double a, double b){
+		if(b != 0){
+			return a/b;
+		}
+		return 0;
+	}
+	
 	
 }
