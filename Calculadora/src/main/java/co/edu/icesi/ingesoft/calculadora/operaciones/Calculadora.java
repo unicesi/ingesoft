@@ -23,6 +23,8 @@ package co.edu.icesi.ingesoft.calculadora.operaciones;
 
 import java.util.Stack;
 
+import co.edu.icesi.ingesoft.calculadora.Operacion;
+
 /**
  * @author Andrés Paz
  * @author XXX
@@ -38,26 +40,70 @@ public final class Calculadora {
 	 */
 	public static String darResultado(Stack<String> pila) {
 		String resultado = "";
+		double calculo = 0;
+	if(pila.size() == 1){
+		resultado = pila.pop();
+	}
+	else{
+		double numero1 = Double.parseDouble(pila.pop());
+		String operacion = pila.pop();
+		double numero2 = Double.parseDouble(pila.pop());
+		
+		switch(Operacion.obtenerPorTexto(operacion)){
+		case SUMA: calculo += adicionar(numero2, numero1); 
+		break;
+		case RESTA: calculo += sustraer(numero2, numero1);
+		break;
+		case MULTIPLICACION: calculo += multiplicar(numero2, numero1);
+		break;
+        case DIVISION: calculo += dividir(numero2, numero1);
+        break;
+		}
+		
+		while(pila.size() != 0){
+		
+		String operador = pila.pop();
+		double numerotemp = Double.parseDouble(pila.pop());
+		
+		
+		switch(Operacion.obtenerPorTexto(operador)){
+		case SUMA: calculo = adicionar(numerotemp, calculo); 
+		break;
+		case RESTA: calculo = sustraer(numerotemp, calculo);
+		break;
+		case MULTIPLICACION: calculo = multiplicar(numerotemp, calculo);
+		break;
+        case DIVISION: calculo = dividir(numerotemp, calculo);
+        break;
+		}
+		
+		
+	 }
+	
+		resultado = calculo + "";
+	    System.out.println(resultado);
+	}
+	   
 		// TODO Completar...
 		return resultado;
 	}
 	
-	private double adicionar(double a, double b)
+	private static double adicionar(double a, double b)
 	{
 		return a + b;
 	}
 	
-	private double sustraer(double a, double b)
+	private static double sustraer(double a, double b)
 	{
 		return a - b;
 	}
 	
-	private double multiplicar(double a, double b)
+	private static double multiplicar(double a, double b)
 	{
 		return a * b;
 	}
 	
-	private double dividir(double a, double b){
+	private static double dividir(double a, double b){
 		if(b != 0){
 			return a/b;
 		}
