@@ -47,4 +47,8 @@ public final class Calculadora {
 		return a + b;
 	}
 	
+	private double sustraer(double a, double b)
+	{
+		return a - b;
+	}
 }
