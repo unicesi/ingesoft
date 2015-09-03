@@ -71,6 +71,18 @@ public final class ManejadorEventosControles extends ManejadorEventos {
 				break;
 			
 			case RESULTADO:
+				
+				switch(this.pila.get(pila.size()-1)){
+				case "+":
+					pila.remove(pila.size()-1);
+				case "-":
+					pila.remove(pila.size()-1);
+				case "x":
+					pila.remove(pila.size()-1);
+				case "÷":	
+					pila.remove(pila.size()-1);
+				}
+				
 				String resultado = Calculadora.darResultado(this.pila);
 				this.obtenerCalculadoraGUI().cambiarTextoDePantalla(resultado);
 				break;
