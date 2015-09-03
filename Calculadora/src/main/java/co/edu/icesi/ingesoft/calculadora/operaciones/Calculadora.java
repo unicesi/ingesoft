@@ -51,4 +51,11 @@ public final class Calculadora {
 	{
 		return a - b;
 	}
+	
+	private double multiplicar(double a, double b)
+	{
+		return a * b;
+	}
+	
+	
 }
