@@ -58,12 +58,18 @@ public final class ManejadorEventosOperaciones extends ManejadorEventos {
 			this.pila.push(operacion);
 			this.obtenerCalculadoraGUI().limpiarTextoDePantalla();
 		} else {
+			if(operacion.equals("-")&& !numero.contains("-")){
+				this.obtenerCalculadoraGUI().cambiarTextoDePantalla("-");
+			}
+			else
 			try {
 				Operacion.obtenerPorTexto(this.pila.peek());
 				this.pila.pop();
 				this.pila.push(operacion);
 			} catch (IllegalArgumentException e1) {
-				
+				if(operacion.equals("-")&& numero.contains("-")){
+					this.obtenerCalculadoraGUI().limpiarTextoDePantalla();
+				}
 			}
 		}
 		
