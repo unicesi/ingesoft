@@ -54,10 +54,11 @@ public final class ManejadorEventosControles extends ManejadorEventos {
 	 */
 	@Override public void actionPerformed(ActionEvent event) {
 		String control = event.getActionCommand();
+		String numero;
 		switch (Control.obtenerPorTexto(control)) {
 			case PUNTO:
 				String numeroActual = this.obtenerCalculadoraGUI().obtenerTextoDePantalla();
-				String numero = "";
+				 numero = "";
 				if (!numeroActual.contains(Control.PUNTO.getTexto())) {
 					numero = numeroActual + control;
 				} else {
@@ -71,17 +72,19 @@ public final class ManejadorEventosControles extends ManejadorEventos {
 				break;
 			
 			case RESULTADO:
-				
-				switch(this.pila.get(pila.size()-1)){
-				case "+":
-					pila.remove(pila.size()-1);
-				case "-":
-					pila.remove(pila.size()-1);
-				case "x":
-					pila.remove(pila.size()-1);
-				case "÷":	
-					pila.remove(pila.size()-1);
+				 numero = this.obtenerCalculadoraGUI().obtenerTextoDePantalla();
+				if ((numero != null) && !numero.equals("")) {
+					this.pila.push(numero);
 				}
+				try{
+				Operacion.obtenerPorTexto(this.pila.peek());
+			    pila.pop();
+				
+				}catch(IllegalArgumentException e){
+					
+				}
+				System.out.println("asdasds");
+				
 				
 				String resultado = Calculadora.darResultado(this.pila);
 				this.obtenerCalculadoraGUI().cambiarTextoDePantalla(resultado);
