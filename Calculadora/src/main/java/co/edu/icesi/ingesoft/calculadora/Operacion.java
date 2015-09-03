@@ -43,7 +43,7 @@ public enum Operacion {
 	/**
 	 * 
 	 */
-	DIVISION("Ã·");
+	DIVISION("÷");
 	
 	/**
 	 * 
