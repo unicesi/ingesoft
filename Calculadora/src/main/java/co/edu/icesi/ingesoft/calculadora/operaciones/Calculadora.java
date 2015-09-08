@@ -81,7 +81,6 @@ public final class Calculadora {
 	 }
 	
 		resultado = calculo + "";
-	    System.out.println(resultado);
 	}
 	   
 		// TODO Completar...

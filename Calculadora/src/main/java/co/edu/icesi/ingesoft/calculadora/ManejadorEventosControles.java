@@ -83,8 +83,6 @@ public final class ManejadorEventosControles extends ManejadorEventos {
 				}catch(IllegalArgumentException e){
 					
 				}
-				System.out.println("asdasds");
-				
 				
 				String resultado = Calculadora.darResultado(this.pila);
 				this.obtenerCalculadoraGUI().cambiarTextoDePantalla(resultado);
